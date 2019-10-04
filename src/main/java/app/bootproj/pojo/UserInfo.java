@@ -1,5 +1,6 @@
 package app.bootproj.pojo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,17 +16,19 @@ import org.hibernate.annotations.GenericGenerator;
 public class UserInfo {
 
     @Id
+    // @GenericGenerator(name="asc_gen", strategy = "increment")
+    @GeneratedValue
+    // (generator = "asc_gen")
     private Integer userid;
 
     private String username;
     private String password;
+    private String token;
+    private String role="USER";
+
     private String email;
 
-    @GenericGenerator(name="asc_gen", strategy = "increment")
-    @GeneratedValue(generator = "asc_gen")
-    private String token;
-
-    private String add;
+    private String addition;
 
     public Integer getUserid() {
         return userid;
@@ -67,12 +70,12 @@ public class UserInfo {
         this.token = token;
     }
 
-    public String getAdd() {
-        return add;
+    public String getAddition() {
+        return addition;
     }
 
-    public void setAdd(String add) {
-        this.add = add;
+    public void setAddition(String addition) {
+        this.addition = addition;
     }
 
     public UserInfo(String username, String password) {
@@ -82,11 +85,22 @@ public class UserInfo {
 
     public UserInfo() { }
 
+    
+
     @Override
     public String toString() {
-        return "User [add=" + add + ", email=" + email + ", password=" + password + ", token=" + token + ", userid="
-                + userid + ", username=" + username + "]";
+        return "UserInfo [addition=" + addition + ", email=" + email + ", password=" + password + ", role=" + role + ", token="
+                + token + ", userid=" + userid + ", username=" + username + "]";
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    
 
 }

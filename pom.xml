@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>app.bootproj</groupId>
-    <artifactId>SpringBootTest</artifactId>
+    <artifactId>project2_be</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -12,9 +12,10 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.2.7.RELEASE</version>
+        <version>2.1.8.RELEASE</version>
     </parent>
 
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>app.bootproj.App</start-class>
@@ -25,6 +26,13 @@
     </properties>
 
     <dependencies>
+
+        <dependency> 
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+
 
         <dependency>
             <groupId>mysql</groupId>
@@ -88,6 +96,7 @@
                         <version>${spring-loaded.version}</version>
                     </dependency>
                 </dependencies>
+ 
             </plugin>
         </plugins>
     </build>
