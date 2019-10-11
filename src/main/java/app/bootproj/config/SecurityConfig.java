@@ -63,20 +63,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         http
             .cors()
             .and()
-            // .httpBasic().and()
-            .authorizeRequests()
-            .antMatchers("/auth/**").permitAll()
-            .anyRequest().authenticated()
-            .antMatchers(HttpMethod.GET, "/").hasRole("ROOT")
-            .antMatchers("/user/**").hasRole("ROOT")
-            .antMatchers("/user/**").hasRole("USER")
+            // .httpBasic().and()   
+                .authorizeRequests()
+                .antMatchers("/auth/**").permitAll()
+                    .anyRequest().authenticated()
+                
+                .antMatchers("/images/**").permitAll()
+                    .anyRequest().permitAll()
+                .antMatchers("/res/**").permitAll()
+                    .anyRequest().permitAll()
+
+                .antMatchers(HttpMethod.GET, "/").hasRole("ROOT")
+                .antMatchers("/user/**").hasRole("ROOT")
+                .antMatchers("/user/**").hasRole("USER")
+                .antMatchers("/product/**").permitAll()
+                    .anyRequest().permitAll()
             .and()
-            .csrf().disable().formLogin().disable()
-            .exceptionHandling()
-            // .authenticationEntryPoint(jwtAuthenticationEntryPoint)
-            .accessDeniedPage("/auth/authenticate")
-            .and().sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .csrf().disable().formLogin().disable()
+                .exceptionHandling()
+                // .authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                .accessDeniedPage("/auth/authenticate")
+            .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         // http.addFilterBefore(jwtRequestFilter, null);

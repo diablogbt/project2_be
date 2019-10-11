@@ -40,12 +40,12 @@ public class UserController {
     }
 
     @GetMapping("/getUserById")
-    String getUser(@RequestParam Integer id){
-        UserInfo userinfo=userService.get(id);
+    UserInfo getUser(@RequestParam Integer userId){
+        UserInfo userinfo=userService.get(userId);
         if(userinfo!=null)
-            return userinfo.toString();
+            return userinfo;
         else
-            return "null";
+            return null;
     }
 
     @GetMapping("/getAll")

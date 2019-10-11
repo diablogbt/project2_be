@@ -35,7 +35,7 @@ public class UserService {
     }
 
     public UserInfo get(Integer id){
-        return userDao.getOne(id);
+        return userDao.findById(id).get();
     }
 
     public void add(UserInfo userInfo){
