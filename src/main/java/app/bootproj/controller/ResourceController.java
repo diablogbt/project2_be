@@ -20,6 +20,7 @@ import org.springframework.util.StreamUtils;
 @RestController
 @CrossOrigin
 @RequestMapping("/res")
+
 public class ResourceController {
     @GetMapping(value = "/avatar", produces = MediaType.IMAGE_PNG_VALUE)
     public void getPNGAvatar(@RequestParam String avatarlocation, HttpServletResponse resp) throws IOException{

@@ -51,13 +51,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         return super.authenticationManagerBean();
     }
 
-    // @Override
-    // protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    //     auth.inMemoryAuthentication().passwordEncoder(passwordEncoder())
-    //         .withUser("dbgbt").password(passwordEncoder().encode("gtb")).roles("ROOT","USER")
-    //         .and().withUser("minty").password(passwordEncoder().encode("123")).roles("USER");
-    // }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

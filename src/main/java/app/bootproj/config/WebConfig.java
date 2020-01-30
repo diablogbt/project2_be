@@ -1,5 +1,7 @@
 package app.bootproj.config;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -17,4 +19,7 @@ public class WebConfig extends WebMvcConfigurationSupport{
             .addResourceHandler("/images/**")
             .addResourceLocations("classpath:/public/images/");
     }
+
+    
 }
+
